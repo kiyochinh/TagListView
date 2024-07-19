@@ -210,8 +210,7 @@ open class TagListView: UIView {
     open private(set) var tagViews: [TagView] = []
     open var tagHeight: CGFloat {
         get {
-            let totalRows = rows == 1 ? 2 : rows
-            return (tagViews.first?.frame.height ?? 0) * CGFloat(totalRows)
+            return ((tagViews.first?.frame.height ?? 0) + marginY) * CGFloat(rows)
         }
     }
     private(set) var tagBackgroundViews: [UIView] = []
