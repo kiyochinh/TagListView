@@ -208,6 +208,12 @@ open class TagListView: UIView {
     @IBOutlet open weak var delegate: TagListViewDelegate?
     
     open private(set) var tagViews: [TagView] = []
+    open var tagHeight: CGFloat {
+        get {
+            let totalRows = rows == 1 ? 2 : rows
+            return (tagViews.first?.frame.height ?? 0) * CGFloat(totalRows)
+        }
+    }
     private(set) var tagBackgroundViews: [UIView] = []
     private(set) var rowViews: [UIView] = []
     private(set) var tagViewHeight: CGFloat = 0
